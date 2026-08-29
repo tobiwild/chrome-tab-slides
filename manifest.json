@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Slides Archiver",
+  "version": "1.0.0",
+  "description": "Capture every open tab as a numbered PNG slide plus a manifest.json with links.",
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Capture slides"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tab Slides Archiver</title>
+  <style>
+    body { margin: 0; font: 14px/1.5 system-ui, sans-serif; color: #222; }
+    main { padding: 20px; }
+    h1 { font-size: 17px; margin: 0 0 8px; }
+    p { margin: 8px 0; }
+    button { padding: 8px 14px; font-size: 14px; }
+    #status { margin-top: 12px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Tab Slides Archiver</h1>
+    <p>Captures every open HTTP(S) tab in this window as a numbered PNG, then
+       downloads a <code>slides.zip</code> containing them plus a
+       <code>manifest.json</code> describing the slides.</p>
+    <p>Note: tabs will briefly switch as they are captured.</p>
+    <button id="capture">Capture and download</button>
+    <div id="status"></div>
+  </main>
+  <script src="capture.js"></script>
+</body>
+</html>
