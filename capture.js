@@ -142,6 +142,9 @@ async function captureAll() {
   }
 
   const manifest = { date: localIso(new Date()), slides };
+  const viewSrc = await (await fetch(chrome.runtime.getURL('index.html'))).text();
+  const embedded = JSON.stringify(slides).replace(/</g, '\\u003c');
+  pngs.push({ name: 'index.html', data: new TextEncoder().encode(viewSrc.replace('/*__SLIDES__*/', embedded)) });
   pngs.push({ name: 'manifest.json', data: new TextEncoder().encode(JSON.stringify(manifest, null, 2)) });
   return { files: pngs, count: index };
 }
@@ -170,7 +173,7 @@ button.addEventListener('click', async () => {
   try {
     const { files, count } = await captureAll();
     downloadZip(buildZip(files), zipName());
-    status.textContent = `Downloaded ${count} slide(s) + manifest.json as slides.zip.`;
+    status.textContent = `Downloaded ${count} slide(s) + index.html + manifest.json as slides.zip.`;
   } catch (error) {
     status.textContent = `Failed: ${error.message}`;
   } finally {

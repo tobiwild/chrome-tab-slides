@@ -15,4 +15,10 @@ as a numbered PNG slide and downloads them plus a `manifest.json` as `slides.zip
 3. The current window's HTTP(S) tabs are captured in order (they briefly switch
    as each is captured) and `slides.zip` is downloaded, containing:
    - `01-host.png`, `02-host.png`, ...
+   - `index.html` - self-contained slideshow (unzip and open in a browser)
    - `manifest.json`
+
+### Slideshow controls
+- **Prev / Next** buttons in the footer (visible on mouseover over the slide)
+- **Slides overview** lists all slide titles; click one to jump to it
+- **Arrow keys** navigate between slides (Up/Left = prev, Down/Right = next)
